@@ -1,67 +1,77 @@
 <!DOCTYPE html>
-    <html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>NutriBot - Tu Asistente Personal de Nutrición</title>
-        <!-- Carga de Tailwind CSS para un estilo rápido y responsivo -->
-        <script src="https://cdn.tailwindcss.com"></script>
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-        <style>
-            body {
-                font-family: 'Inter', sans-serif;
-                background-color: #f7f9fb;
-            }
-            .main-card {
-                background: linear-gradient(135deg, #ffffff 0%, #f0f4ff 100%);
-                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            }
-            /* Estilo personalizado para el widget de Dialogflow */
-            df-messenger {
-                --df-messenger-button-titlebar-color: #4f46e5; 
-                --df-messenger-chat-background-color: #f8fafc;
-                --df-messenger-font-color: #1f2937;
-                --df-messenger-send-icon: #4f46e5;
-                --df-messenger-user-message-background-color: #d1d5db;
-                --df-messenger-bot-message-background-color: #ffffff;
-                --df-messenger-border-radius: 0.5rem;
-                --df-messenger-height: 80vh; 
-                --df-messenger-width: 100%; 
-                position: static;
-            }
-        </style>
-    </head>
-    <body class="min-h-screen flex items-center justify-center p-4">
-    
-        <div class="main-card w-full max-w-lg mx-auto rounded-xl p-8 transition-all duration-300">
-            <header class="text-center mb-8">
-                <h1 class="text-4xl font-extrabold text-indigo-700 mb-2">NutriBot</h1>
-                <p class="text-gray-500 text-lg">Asistente de Nutrición potenciado por Gemini.</p>
-            </header>
-    
-            <section class="mb-8">
-                <div class="p-4 bg-green-100 border-l-4 border-green-500 rounded-lg text-green-800">
-                    <p class="font-semibold">¡Listo para Probar!</p>
-                    <p class="text-sm">Hemos insertado el ID de Proyecto: nutri-bot-yudc.</p>
-                </div>
-            </section>
-    
-            <div class="h-[600px] w-full border border-gray-300 rounded-xl overflow-hidden shadow-lg">
-                
-                <df-messenger
-                    project-id="nutri-bot-yudc" 
-                    agent-id="f2e1c7aa-0e41-4ba4-b819-7cdda23068f3" 
-                    language-code="es"
-                    chat-title="Nutri-bot"
-                    api-version="2">
-                </df-messenger>
-                
-            </div>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NutriBot - Tu Asistente Personal de Nutrición</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Definición de la paleta de colores */
+        :root {
+            --color-lightest: #DDF4E7; /* Fondo y elementos claros */
+            --color-medium: #67C090; /* Acentos principales (botones, borde) */
+            --color-dark: #26667F; /* Texto principal y detalles */
+            --color-darkest: #124170; /* Encabezado y texto de alto contraste */
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--color-lightest); /* Fondo principal muy claro */
+            transition: background-color 0.3s;
+        }
+
+        /* Estilo para la tarjeta principal del chat */
+        .main-card {
+            background-color: #ffffff; /* Fondo de la tarjeta siempre blanco para limpieza */
+            box-shadow: 0 15px 35px rgba(18, 65, 112, 0.1); /* Sombra suave con el color más oscuro */
+            border: 1px solid rgba(103, 192, 144, 0.3); /* Borde sutil del color medio */
+        }
+
+        /* Estilo personalizado para el widget de Dialogflow */
+        df-messenger {
+            /* Colores del widget de Dialogflow adaptados a la nueva paleta */
+            --df-messenger-button-titlebar-color: var(--color-darkest); /* Barra de título del chat */
+            --df-messenger-chat-background-color: #f0f7f4; /* Fondo del área de chat más claro que el body */
+            --df-messenger-font-color: var(--color-dark); /* Color de fuente general */
+            --df-messenger-send-icon: var(--color-medium); /* Icono de enviar */
+            --df-messenger-user-message-background-color: var(--color-medium); /* Fondo de mensaje de usuario */
+            --df-messenger-bot-message-background-color: #ffffff; /* Fondo de mensaje del bot */
+            --df-messenger-border-radius: 0.5rem;
+            --df-messenger-height: 100%; /* Ocupa el 100% de su contenedor */
+            --df-messenger-width: 100%;
+            position: static;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-center p-4 sm:p-6 lg:p-10">
+
+    <div class="main-card w-full max-w-2xl mx-auto rounded-2xl p-6 md:p-10 transition-all duration-300">
+        
+        <header class="text-center mb-8">
+            <h1 class="text-4xl md:text-5xl font-extrabold" style="color: var(--color-darkest);">
+                <span style="color: var(--color-medium);">Nutri</span>Bot <span style="color: var(--color-medium);">by StarBien  ⭐</span>
+            </h1>
+            <p class="text-lg mt-2" style="color: var(--color-dark);">
+                Tu Asistente de Nutrición Personalizado
+            </p>
+        </header>
+
+        <div class="h-[70vh] min-h-[500px] w-full border border-gray-200 rounded-xl overflow-hidden shadow-xl">
+            
+            <df-messenger
+                project-id="nutri-bot-yudc" 
+                agent-id="f2e1c7aa-0e41-4ba4-b819-7cdda23068f3" 
+                language-code="es"
+                chat-title="Nutri-bot"
+                api-version="2">
+            </df-messenger>
             
         </div>
-    
-        <!-- Carga del widget de Dialogflow Messenger -->
-        <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
         
-    </body>
-    </html>
+    </div>
+    
+    <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+    
+</body>
+</html>
